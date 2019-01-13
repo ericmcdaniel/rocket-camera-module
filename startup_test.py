@@ -1,4 +1,11 @@
 #!/bin/env python3
+'''
+***************************************************
+* THIS VERSION HAS BEEN DEPRECATED
+* This version was used only for testing purposes
+* Refer to rocket-camera-module.py for official script
+***************************************************
+'''
 import sys
 #import RPi.GPIO as GPIO
 import os
@@ -36,14 +43,12 @@ def InitialDelay():
 def GetSwitchReading(RotatedServo, SwitchStatus):
 	# Allows for the photo to be taken if servo has rotated and switch is depressed
 	if (RotatedServo) and (SwitchStatus == 0):
-		print("true")
 		return True
 	return False        
 
 def IsResetEligible(SwitchStatus):
 	# Resets the ability to take a new photo if the servo has rotated
 	if (SwitchStatus == 1):
-		print("Successful reset.")
 		return True
 	return False
 
@@ -65,7 +70,7 @@ def main():
 			sleep(0.1)    # Allows time for camera to be still        
 			#with picamera.PiCamera() as camera:
 			#   camera.capture("Image_%d.jpg" % d)
-			print("picture taken")
+			print("Image_%d.jpg successfully saved" % d)
 			# Increment the naming scheme/photo counter, reset conditions
 			d += 1
 			PicCounter += 1
